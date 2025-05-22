@@ -33,7 +33,7 @@ Tumor_Case= 2 % Can be 1 (high) or 2 (low)
 %---
 % Specify the bifurcation parameter e.g., r1,b,dT,f,K,alpha21,p0,d2 etc.
 
-bif_param='b'
+bif_param='alpha21'
 
 %==========================================================================
 % Default Initial Conditions
