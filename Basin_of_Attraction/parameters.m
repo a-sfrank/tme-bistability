@@ -1,5 +1,6 @@
-% Parameter file: Choose between `Case` 1-7:
-% Authors: Anna-Simone Frank, Kamila Larripa, Hwayeon Ruy and Susanna
+% Parameter file: Choose between `Case` 1-7
+
+% Main contributors: Anna-Simone Frank, Kamila Larripa, Hwayeon Ruy and Susanna
 % Roeblitz
 
 function params=parameters(Case)

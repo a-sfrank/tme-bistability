@@ -1,7 +1,7 @@
 % Code simply calculates the jacobian matrix of the tumor-macrophage model
 % Jacobian matrix is needed to determine eigenvalues and the satbility of steady states
 
-% Author: Anna-Simone Frank (email: asfrank88@gmail.com)
+% Main contributor: Anna-Simone Frank 
 
 %--------------------------------------------------------------------------
 

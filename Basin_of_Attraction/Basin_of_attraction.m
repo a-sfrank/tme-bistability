@@ -1,7 +1,7 @@
 %% To plot Basin of Attraction for a given set of equations using ode45 solver
 %% Bistable Case only
 
-% Author: Anna-Simone Frank (email: asfrank88@gmail.com)
+% Main contributor: Anna-Simone Frank 
 %--------------------------------------------------------------------------
 clc; clear all
 warning('off') 
