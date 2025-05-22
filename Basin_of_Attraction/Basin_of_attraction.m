@@ -1,6 +1,8 @@
 %% To plot Basin of Attraction for a given set of equations using ode45 solver
-%% Bistable Case
+%% Bistable Case only
 
+% Author: Anna-Simone Frank (email: asfrank88@gmail.com)
+%--------------------------------------------------------------------------
 clc; clear all
 warning('off') 
 %==========================================================================
@@ -28,6 +30,7 @@ Case_basin = input('Choose between 1 , 2 , 3 or 4: ');
 % Case 2: Check that steady states are correct:
 % Run first: population_Model_v2; Jacobian_Sym_population_model.m;
 % parameters.m
+% Fill in the steady state values
 
  r1 = [0.5511    0.0343    0.1126    0.1095    0.1914]; 
 
@@ -41,7 +44,8 @@ Case_basin = input('Choose between 1 , 2 , 3 or 4: ');
 % r1 = [0.0575    0.0141    0.1387    0.0849    0.0015];
 % r2 = [0.6293    0.0212    0.2075    0.2247    0.0036];
 %---------------------------------------------
-
+% DO NOT CHANGE BELOW
+%---------------------------------------------
 switch Case_basin
     case {1}
     y1 = linspace(0,2,50) ;
@@ -385,6 +389,7 @@ function [dy,J]=rhs(t,y)
  % Alternatively via prompt:
  %input('Choose between 1 (low), 2 (bistable medium/low), 3 (high): ');
 
+ 
     params=parameters(Case) ;
 
     T=y(1);     %tumor cellf
