@@ -139,11 +139,14 @@ warning('on') % Remove the warning off constraint
     plot(r2(1), r2(2),'kd','MarkerSize',10) ;
 
     legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 18) ;
+    xlabel('Tumor state', 'FontSize', 18) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 18) ;
+    ylabel(ylabelMessage, 'FontSize', 18) ;
     legend;
     ylim([0 1])
+
+    ax=gca;
+    ax.FontSize = 18;
     grid off;
     % Create a dynamic figure name based on these parameters
     figure_name = figureMessage; 
@@ -216,6 +219,9 @@ warning('on') % Remove the warning off constraint
     ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
+
+    ax=gca;
+    ax.FontSize = 18;
     grid off;
 
     % Create a dynamic figure name based on these parameters
@@ -288,6 +294,9 @@ warning('on') % Remove the warning off constraint
     ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
+
+    ax=gca;
+    ax.FontSize = 18;
     grid off;
     % Create a dynamic figure name based on these parameters
     figure_name = figureMessage; 
@@ -360,6 +369,8 @@ warning('on') % Remove the warning off constraint
     ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
+    ax=gca;
+    ax.FontSize = 18;
     grid off;
     % Create a dynamic figure name based on these parameters
     figure_name = figureMessage; 
