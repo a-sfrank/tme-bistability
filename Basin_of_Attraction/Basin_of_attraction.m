@@ -14,19 +14,21 @@ if ~isdir(myFolder)
   return;
 end
 %==========================================================================
-% Load important information
-Case_basin = 1
+% Load important information: 
+% Which case do you wnat to run: M0 vs T (1); M1 vs T (2); M2 vs T (3) or Mm vs T (4) ?')
+% Set manually: Case_basin = 1
+
+% Prompt:
+disp('Which case do you wnat to run: M0 vs T (1); M1 vs T (2); M2 vs T (3) or Mm vs T (4) ?')
+Case_basin = input('Choose between 1 , 2 , 3 or 4: ');
 %=========================================================================
 % The roots of the given governing equations per parameter cases
 % Makes only sense for bistable cases
 %=========================================================================
-%Case 3:
-%r1 = [ 0.0121 ;   0.0063 ;   0.0627 ;   0.0067;    0.0006] ; %for bi-stability case
-% r2 = [ 0.5492  ;  0.0037 ;   0.1211 ;   0.1175 ;   0.2057] ; %From
-% population_model_v2
-%---------------------------------------------
-% Case 2: Check that SS are correct, population_Model_v2; Jacodian_dots_.m
-% file calculates the jacobian matrix
+% Case 2: Check that steady states are correct:
+% Run first: population_Model_v2; Jacobian_Sym_population_model.m;
+% parameters.m
+
  r1 = [0.5511    0.0343    0.1126    0.1095    0.1914]; 
 
  r2 = [0.0629    0.0200    0.0901    0.0365    0.0982];
@@ -37,7 +39,7 @@ Case_basin = 1
 %---------------------------------------------
 %Case 5:
 % r1 = [0.0575    0.0141    0.1387    0.0849    0.0015];
-%   r2 = [0.6293    0.0212    0.2075    0.2247    0.0036];
+% r2 = [0.6293    0.0212    0.2075    0.2247    0.0036];
 %---------------------------------------------
 
 switch Case_basin
@@ -97,11 +99,11 @@ tic
 for i = 1:length(y1)
      for j = 1:length(y2)
           y0 = [y1(i);y2(j);y3;y4;y5] ; %initial condition between 0 and 2 both for x1 and x2
+
           % Solve the system of Equations using ode45 solver
-          
-          %[T,Y]=ode45(@rhs, tspan,y0);
+         
           [T,Y]=ode23s(@rhs,tspan,y0);
-          FP=transpose(Y(end,:)) ; %modified 2 D: Y(end,1:2) or Y(end,1:2:3 
+          FP=transpose(Y(end,:)) ; 
 
           % Locating the initial conditions according to error
           if norm(FP-r1)<1e-8 
@@ -127,15 +129,15 @@ warning('on') % Remove the warning off constraint
     figure;
     %set(gcf,'color','w') 
     hold on
-    plot(Yr1(1,:),Yr1(2,:),'.','color','r') ;
-    plot(Yr2(1,:),Yr2(2,:),'.','color','b') ;
+    plot(Yr1(1,:),Yr1(2,:),'.','color','r','MarkerSize',10) ;
+    plot(Yr2(1,:),Yr2(2,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(2),'k*','MarkerSize',20) ;
     plot(r2(1), r2(2),'kd','MarkerSize',10) ;
 
     legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 16) ;
+    xlabel('Tumor state', 'fontsize', 18) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 16) ;
+    ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
     grid off;
@@ -149,6 +151,7 @@ warning('on') % Remove the warning off constraint
     saveas(gcf, [base_file_name, '.eps'], 'epsc');  % EPS format
     saveas(gcf, [base_file_name, '.pdf'], 'pdf');  % PDF format
     saveas(gcf, [base_file_name, '.jpg'], 'jpg');  % JPEG format
+    saveas(gcf, [base_file_name, '.fig'], 'fig');  % FIG format
 
     % Optionally, you can close the figure after saving
     close(gcf);
@@ -171,9 +174,8 @@ for i = 1:length(y1)
           y0 = [y1(i);y2;y3(j);y4;y5] ; %initial condition between 0 and 2 both for x1 and x2
           % Solve the system of Equations using ode45 solver
           
-          %[T,Y]=ode45(@rhs, tspan,y0);
           [T,Y]=ode23s(@rhs,tspan,y0);
-          FP=transpose(Y(end,:))  %modified 2 D: Y(end,1:2) or Y(end,1:2:3 
+          FP=transpose(Y(end,:))  
 
           % Locating the initial conditions according to error
           if norm(FP-r1)<1e-8 
@@ -197,17 +199,17 @@ toc
 warning('on') % Remove the warning off constraint 
     % Initialize figure
     figure;
-    %set(gcf,'color','w') 
+   
     hold on
-    plot(Yr1(1,:),Yr1(3,:),'.','color','r') ;
-    plot(Yr2(1,:),Yr2(3,:),'.','color','b') ;
+    plot(Yr1(1,:),Yr1(3,:),'.','color','r','MarkerSize',10) ;
+    plot(Yr2(1,:),Yr2(3,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(3),'k*','MarkerSize',20)  ;
     plot(r2(1), r2(3),'kd','MarkerSize',10)  ;
 
     legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 16) ;
+    xlabel('Tumor state', 'fontsize', 18) ;
      xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 16) ;
+    ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
     grid off;
@@ -222,6 +224,7 @@ warning('on') % Remove the warning off constraint
     saveas(gcf, [base_file_name, '.eps'], 'epsc');  % EPS format
     saveas(gcf, [base_file_name, '.pdf'], 'pdf');  % PDF format
     saveas(gcf, [base_file_name, '.jpg'], 'jpg');  % JPEG format
+    saveas(gcf, [base_file_name, '.fig'], 'fig');  % FIG format
 
     % Optionally, you can close the figure after saving
     close(gcf);
@@ -244,9 +247,8 @@ for i = 1:length(y1)
           y0 = [y1(i);y2;y3;y4(j);y5] ; %initial condition between 0 and 2 both for x1 and x2
           % Solve the system of Equations using ode45 solver
           
-          %[T,Y]=ode45(@rhs, tspan,y0);
           [T,Y]=ode23s(@rhs,tspan,y0);
-          FP=transpose(Y(end,:)); %modified 2 D: Y(end,1:2) or Y(end,1:2:3 
+          FP=transpose(Y(end,:)); 
 
           % Locating the initial conditions according to error
           if norm(FP-r1)<1e-8 
@@ -269,17 +271,17 @@ toc
 warning('on') % Remove the warning off constraint 
     % Initialize figure
     figure;
-    %set(gcf,'color','w') 
+    
     hold on
-    plot(Yr1(1,:),Yr1(4,:),'.','color','r') ;
-    plot(Yr2(1,:),Yr2(4,:),'.','color','b') ;
+    plot(Yr1(1,:),Yr1(4,:),'.','color','r','MarkerSize',10) ;
+    plot(Yr2(1,:),Yr2(4,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(4),'k*','MarkerSize',20)   ;
     plot(r2(1), r2(4),'kd','MarkerSize',10)    ;
 
     legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 16) ;
+    xlabel('Tumor state', 'fontsize', 18) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 16) ;
+    ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
     grid off;
@@ -293,6 +295,7 @@ warning('on') % Remove the warning off constraint
     saveas(gcf, [base_file_name, '.eps'], 'epsc');  % EPS format
     saveas(gcf, [base_file_name, '.pdf'], 'pdf');  % PDF format
     saveas(gcf, [base_file_name, '.jpg'], 'jpg');  % JPEG format
+    saveas(gcf, [base_file_name, '.fig'], 'fig');  % FIG format
 
     % Optionally, you can close the figure after saving
     close(gcf);
@@ -315,9 +318,9 @@ for i = 1:length(y1)
           y0 = [y1(i);y2;y3;y4;y5(j)] ; %initial condition between 0 and 2 both for x1 and x2
           % Solve the system of Equations using ode45 solver
           
-          %[T,Y]=ode45(@rhs, tspan,y0);
+        
           [T,Y]=ode23s(@rhs,tspan,y0);
-          FP=transpose(Y(end,:)) ; %modified 2 D: Y(end,1:2) or Y(end,1:2:3 
+          FP=transpose(Y(end,:)) ; 
 
           % Locating the initial conditions according to error
           if norm(FP-r1)<1e-8 
@@ -340,17 +343,17 @@ toc
 warning('on') % Remove the warning off constraint 
     % Initialize figure
     figure;
-    %set(gcf,'color','w') 
+   
     hold on
-    plot(Yr1(1,:),Yr1(5,:),'.','color','r') ;
-    plot(Yr2(1,:),Yr2(5,:),'.','color','b') ;
+    plot(Yr1(1,:),Yr1(5,:),'.','color','r','MarkerSize',10) ;
+    plot(Yr2(1,:),Yr2(5,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(5),'k*','MarkerSize',20)  ;
     plot(r2(1), r2(5),'kd','MarkerSize',10) ;
 
     legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 16) ;
+    xlabel('Tumor state', 'fontsize', 18) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 16) ;
+    ylabel(ylabelMessage, 'fontsize', 18) ;
     legend;
     ylim([0 1])
     grid off;
@@ -364,7 +367,7 @@ warning('on') % Remove the warning off constraint
     saveas(gcf, [base_file_name, '.eps'], 'epsc');  % EPS format
     saveas(gcf, [base_file_name, '.pdf'], 'pdf');  % PDF format
     saveas(gcf, [base_file_name, '.jpg'], 'jpg');  % JPEG format
-
+    saveas(gcf, [base_file_name, '.fig'], 'fig');  % FIG format
     % Optionally, you can close the figure after saving
     close(gcf);
     end
@@ -376,9 +379,12 @@ warning('on') % Remove the warning off constraint
 %==========================================================================
 function [dy,J]=rhs(t,y)
 
-%parameters
-%parameters_update;
- Case = 2 ;%input('Choose between 1 (low), 2 (bistable medium/low), 3 (high): ');
+%Manual insertaion of case:
+ Case = 2 ; %Bistability makes here only sense, so we set it fixed to Case=2
+
+ % Alternatively via prompt:
+ %input('Choose between 1 (low), 2 (bistable medium/low), 3 (high): ');
+
     params=parameters(Case) ;
 
     T=y(1);     %tumor cellf
