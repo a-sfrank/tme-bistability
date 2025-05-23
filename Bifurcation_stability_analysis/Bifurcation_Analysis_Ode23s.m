@@ -33,7 +33,7 @@ Tumor_Case= 2 % Can be 1 (high) or 2 (low)
 %---
 % Specify the bifurcation parameter e.g., r1,b,dT,f,K,alpha21,p0,d2 etc.
 
-bif_param='p0'
+bif_param='b'
 
 %==========================================================================
 % Default Initial Conditions
@@ -126,50 +126,88 @@ end
 %==========================================================================
 switch bif_param
     case 'b'
-        bif_param_l = '$\beta$'; 
+        bif_param_l = '$\mathbf{\beta}$'; 
     case 'r1'
-        bif_param_l = '$r_1$'; 
+        bif_param_l = '$\mathbf{r_1}$'; 
     case 'r2'
-        bif_param_l = '$r_2$'; 
+        bif_param_l = '$\mathbf{r_2}$'; 
     case 'p0'
-        bif_param_l = '$p_0$'; 
+        bif_param_l = '$\mathbf{p_0}$'; 
     case 'pT'
-        bif_param_l = '$p_T$';
+        bif_param_l = '$\mathbf{p_T}$';
     case 'dT'
-        bif_param_l = '$d_T$';
+        bif_param_l = '$\mathbf{d_T}$';
     case 'd2'
-        bif_param_l = '$d_2$';
+        bif_param_l = '$\mathbf{d_2}$';
     case 'alpha21'
-        bif_param_l = '$\alpha_{21}$';  
+        bif_param_l = '$\mathbf{\alpha_{21}}$';  
     otherwise
         bif_param_l = bif_param;
 end
+
+% %-----------------------------------------------------------------------
+% figure;
+% ax = axes;
+% 
+% % ---- Plot Tumor (Right Y-axis) ----
+% yyaxis right
+% hT = plot(param_range, bifurcation_values(:,1), 'k-', 'LineWidth', 2);%, 'MarkerSize', 4);
+% ylabel('Tumor size steady state')
+% ylim([0, 1]);
+% hold off
+% % ---- Plot Immune Cells (Left Y-axis) ----
+% yyaxis left
+% h0 = plot(param_range, bifurcation_values(:,2), 'c-', 'LineWidth', 2);%, 'MarkerSize', 4);
+% hold on;
+% h1 = plot(param_range, bifurcation_values(:,3), 'r--', 'LineWidth', 2); %, 'MarkerSize', 4);
+% h2 = plot(param_range, bifurcation_values(:,4), 'b:', 'LineWidth', 2); %, 'MarkerSize', 4);
+% hM = plot(param_range, bifurcation_values(:,5), 'm-.', 'LineWidth', 2); %, 'MarkerSize', 4);
+% ylabel('Cell populations steady state')
+% ylim([0, 0.4]);
+% hold off
+% % ---- X-Axis and Labels ----
+% xlabel(['Bifurcation for ', bif_param_l, xlabelMessage], 'FontSize', 16, 'Interpreter', 'latex');
+% legend([hT, h0, h1, h2, hM], {'Tumor','M0','M1','M2','Mm'});
+% grid on;
+% xlim([min(param_range), max(param_range)]);
 
 %-----------------------------------------------------------------------
 figure;
 ax = axes;
 
+fontSize = 18;  % Common font size
+fontName = 'Arial';  % Common font name
+
+% Apply font settings to axes
+set(ax, 'FontSize', fontSize, 'FontName', fontName);
+
 % ---- Plot Tumor (Right Y-axis) ----
 yyaxis right
-hT = plot(param_range, bifurcation_values(:,1), 'k-', 'LineWidth', 2);%, 'MarkerSize', 4);
-ylabel('Tumor size steady state')
+hT = plot(param_range, bifurcation_values(:,1), 'k-', 'LineWidth', 2);
+ylabel('tumor size steady state', 'FontSize', fontSize, 'FontName', fontName)
 ylim([0, 1]);
 hold off
+
 % ---- Plot Immune Cells (Left Y-axis) ----
 yyaxis left
-h0 = plot(param_range, bifurcation_values(:,2), 'c-', 'LineWidth', 2);%, 'MarkerSize', 4);
+h0 = plot(param_range, bifurcation_values(:,2), 'c-', 'LineWidth', 2);
 hold on;
-h1 = plot(param_range, bifurcation_values(:,3), 'r--', 'LineWidth', 2); %, 'MarkerSize', 4);
-h2 = plot(param_range, bifurcation_values(:,4), 'b:', 'LineWidth', 2); %, 'MarkerSize', 4);
-hM = plot(param_range, bifurcation_values(:,5), 'm-.', 'LineWidth', 2); %, 'MarkerSize', 4);
-ylabel('Cell populations steady state')
+h1 = plot(param_range, bifurcation_values(:,3), 'r--', 'LineWidth', 2);
+h2 = plot(param_range, bifurcation_values(:,4), 'b:', 'LineWidth', 2);
+hM = plot(param_range, bifurcation_values(:,5), 'm-.', 'LineWidth', 2);
+ylabel('cell population steady state', 'FontSize', fontSize, 'FontName', fontName)
 ylim([0, 0.4]);
 hold off
+
 % ---- X-Axis and Labels ----
-xlabel(['Bifurcation for ', bif_param_l, xlabelMessage], 'FontSize', 16, 'Interpreter', 'latex');
+%xlabel(['Bifurcation for ', bif_param_l, xlabelMessage], ...
+ %      'FontSize', fontSize, 'FontName', fontName, 'Interpreter', 'latex');
+xlabel(bif_param_l, ...
+       'FontSize', 22, 'FontName', fontName , 'Interpreter', 'latex');
 legend([hT, h0, h1, h2, hM], {'Tumor','M0','M1','M2','Mm'});
 grid on;
 xlim([min(param_range), max(param_range)]);
+
 
 
 % Set colors of both Y-axes
@@ -177,7 +215,7 @@ ax.YAxis(1).Color = [0 0 0];
 ax.YAxis(2).Color = [0 0 0];
 
 % Optional font size
-fontsize(gcf, 16, 'points');
+%fontsize(gcf, 18, 'points');
 
 
 %==========================================================================
