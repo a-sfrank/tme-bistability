@@ -31,9 +31,9 @@ params=parameters(Case);
 Tumor_Case= 2 % Can be 1 (high) or 2 (low)
 
 %---
-% Specify the bifurcation parameter e.g., r1,b,dT,f,K,alpha21,p0,d2,pT etc.
+% Specify the bifurcation parameter e.g., r2,r1,b,dT,p0,d2,pT ,(f,K,alpha21), etc.
 
-bif_param='p0'
+bif_param='r2'
 
 %==========================================================================
 % Default Initial Conditions
@@ -82,7 +82,7 @@ switch bif_param
     case 'pT'
          param_range = 0.0:0.1:0.5; % pT range values
     case 'dT'
-        param_range = 0.0:0.01:0.1; % dT range values
+        param_range = 0.0:0.01:0.05; % dT range values
     case 'd2'
         param_range = 0.0:0.01:0.2; % d2 range values
     case 'alpha21' 
