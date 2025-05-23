@@ -195,7 +195,7 @@ ax.YAxis(2).Color = [0 0 0];
 
 %==========================================================================
 % Create a dynamic figure name based on these parameters
-figure_name = ['Bifurcation_', bif_param, '_', figureMessage , '_', 'case','_ ',num2str(Case)]; 
+figure_name = ['Bifurcation_', bif_param, '_', figureMessage , '_', 'case','_',num2str(Case)]; 
 
 
 % Define the file names with full path
