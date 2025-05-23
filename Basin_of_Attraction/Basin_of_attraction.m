@@ -53,8 +53,8 @@ switch Case_basin
     y3 = 0.001;
     y4 = 0.001;
     y5 = 0.001;
-    ylabelMessage = 'Macrophage (M0)';
-    xlabelMassage = 'Tumor state';
+    ylabelMessage = 'macrophage (M0)';
+    xlabelMassage = 'tumor size';
     figureMessage = 'BoA_M0';
     case {2}
     y1 = linspace(0,2,50) ;
@@ -62,8 +62,8 @@ switch Case_basin
     y3 = linspace(0,2,50);
     y4 = 0.001;
     y5 = 0.001;
-    ylabelMessage = 'Macrophage (M1)';
-    xlabelMassage = 'Tumor state';
+    ylabelMessage = 'macrophage (M1)';
+    xlabelMassage = 'tumor size';
     figureMessage = 'BoA_M1';
     case {3}
     y1 = linspace(0,2,50) ;
@@ -71,8 +71,8 @@ switch Case_basin
     y3 = 0.001;
     y4 = linspace(0,2,50);
     y5 = 0.001;
-    ylabelMessage = 'Macrophage (M2)';
-    xlabelMassage = 'Tumor state';
+    ylabelMessage = 'macrophage (M2)';
+    xlabelMassage = 'tumor size';
     figureMessage = 'BoA_M2';
     case {4}
     y1 = linspace(0,2,50) ;
@@ -80,8 +80,8 @@ switch Case_basin
     y3 = 0.001;
     y4 = 0.001;
     y5 = linspace(0,2,50);
-    ylabelMessage = 'Macrophage (Mm)';
-    xlabelMassage = 'Tumor state';
+    ylabelMessage = 'macrophage (Mm)';
+    xlabelMassage = 'tumor size';
     figureMessage = 'BoA_Mm';
 end
 %==========================================================================
@@ -132,16 +132,19 @@ warning('on') % Remove the warning off constraint
     % Initialize figure
     figure;
     %set(gcf,'color','w') 
+    fontSize = 18;  % Common font size
+    fontName = 'Arial';  % Common font name
+
     hold on
     plot(Yr1(1,:),Yr1(2,:),'.','color','r','MarkerSize',10) ;
     plot(Yr2(1,:),Yr2(2,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(2),'k*','MarkerSize',20) ;
     plot(r2(1), r2(2),'kd','MarkerSize',10) ;
 
-    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'FontSize', 18) ;
+    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12, 'fontname', fontName) ;
+    xlabel('tumor size', 'FontSize', 18,'FontName',fontName) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'FontSize', 18) ;
+    ylabel(ylabelMessage, 'FontSize', 18,'FontName',fontName) ;
     legend;
     ylim([0 1])
 
@@ -206,17 +209,19 @@ toc
 warning('on') % Remove the warning off constraint 
     % Initialize figure
     figure;
-   
+   fontSize = 18;  % Common font size
+    fontName = 'Arial';  % Common font name
+
     hold on
     plot(Yr1(1,:),Yr1(3,:),'.','color','r','MarkerSize',10) ;
     plot(Yr2(1,:),Yr2(3,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(3),'k*','MarkerSize',20)  ;
     plot(r2(1), r2(3),'kd','MarkerSize',10)  ;
 
-    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 18) ;
+    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12,'fontName',fontName) ;
+    xlabel('tumor size', 'fontsize', 18,'fontName',fontName) ;
      xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 18) ;
+    ylabel(ylabelMessage, 'fontsize', 18,'fontName',fontName) ;
     legend;
     ylim([0 1])
 
@@ -281,17 +286,19 @@ toc
 warning('on') % Remove the warning off constraint 
     % Initialize figure
     figure;
-    
+    fontSize = 18;  % Common font size
+    fontName = 'Arial';  % Common font name
+
     hold on
     plot(Yr1(1,:),Yr1(4,:),'.','color','r','MarkerSize',10) ;
     plot(Yr2(1,:),Yr2(4,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(4),'k*','MarkerSize',20)   ;
     plot(r2(1), r2(4),'kd','MarkerSize',10)    ;
 
-    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 18) ;
+    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12,'fontName',fontName) ;
+    xlabel('tumor size', 'fontsize', 18,'fontName',fontName) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 18) ;
+    ylabel(ylabelMessage, 'fontsize', 18,'fontName',fontName) ;
     legend;
     ylim([0 1])
 
@@ -356,17 +363,19 @@ toc
 warning('on') % Remove the warning off constraint 
     % Initialize figure
     figure;
-   
+   fontSize = 18;  % Common font size
+    fontName = 'Arial';  % Common font name
+
     hold on
     plot(Yr1(1,:),Yr1(5,:),'.','color','r','MarkerSize',10) ;
     plot(Yr2(1,:),Yr2(5,:),'.','color','b','MarkerSize',10) ;
     plot(r1(1), r1(5),'k*','MarkerSize',20)  ;
     plot(r2(1), r2(5),'kd','MarkerSize',10) ;
 
-    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12) ;
-    xlabel('Tumor state', 'fontsize', 18) ;
+    legend('High Tumor (IC)','Low Tumor (IC)', 'fontsize', 12,'fontName',fontName) ;
+    xlabel('tumor size', 'fontsize', 18,'fontName',fontName) ;
     xlim([0 1])
-    ylabel(ylabelMessage, 'fontsize', 18) ;
+    ylabel(ylabelMessage, 'fontsize', 18,'fontName',fontName) ;
     legend;
     ylim([0 1])
     ax=gca;
