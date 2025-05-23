@@ -20,7 +20,7 @@ end
 %---
 % Choose between bi-or monostable cases: 1-7:
 
-Case = 2
+Case = 1
 
 % Loading of prameters
 params=parameters(Case);
@@ -33,7 +33,7 @@ Tumor_Case= 2 % Can be 1 (high) or 2 (low)
 %---
 % Specify the bifurcation parameter e.g., r2,r1,b,dT,p0,d2,pT ,(f,K,alpha21), etc.
 
-bif_param='r2'
+bif_param='dT'
 
 %==========================================================================
 % Default Initial Conditions
