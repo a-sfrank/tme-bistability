@@ -31,9 +31,9 @@ params=parameters(Case);
 Tumor_Case= 2 % Can be 1 (high) or 2 (low)
 
 %---
-% Specify the bifurcation parameter e.g., r1,b,dT,f,K,alpha21,p0,d2 etc.
+% Specify the bifurcation parameter e.g., r1,b,dT,f,K,alpha21,p0,d2,pT etc.
 
-bif_param='b'
+bif_param='p0'
 
 %==========================================================================
 % Default Initial Conditions
@@ -145,31 +145,6 @@ switch bif_param
         bif_param_l = bif_param;
 end
 
-% %-----------------------------------------------------------------------
-% figure;
-% ax = axes;
-% 
-% % ---- Plot Tumor (Right Y-axis) ----
-% yyaxis right
-% hT = plot(param_range, bifurcation_values(:,1), 'k-', 'LineWidth', 2);%, 'MarkerSize', 4);
-% ylabel('Tumor size steady state')
-% ylim([0, 1]);
-% hold off
-% % ---- Plot Immune Cells (Left Y-axis) ----
-% yyaxis left
-% h0 = plot(param_range, bifurcation_values(:,2), 'c-', 'LineWidth', 2);%, 'MarkerSize', 4);
-% hold on;
-% h1 = plot(param_range, bifurcation_values(:,3), 'r--', 'LineWidth', 2); %, 'MarkerSize', 4);
-% h2 = plot(param_range, bifurcation_values(:,4), 'b:', 'LineWidth', 2); %, 'MarkerSize', 4);
-% hM = plot(param_range, bifurcation_values(:,5), 'm-.', 'LineWidth', 2); %, 'MarkerSize', 4);
-% ylabel('Cell populations steady state')
-% ylim([0, 0.4]);
-% hold off
-% % ---- X-Axis and Labels ----
-% xlabel(['Bifurcation for ', bif_param_l, xlabelMessage], 'FontSize', 16, 'Interpreter', 'latex');
-% legend([hT, h0, h1, h2, hM], {'Tumor','M0','M1','M2','Mm'});
-% grid on;
-% xlim([min(param_range), max(param_range)]);
 
 %-----------------------------------------------------------------------
 figure;
