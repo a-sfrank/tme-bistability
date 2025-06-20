@@ -16,31 +16,27 @@ if ~isdir(myFolder)
   return;
 end
 %==========================================================================
-% Load important information: 
-% Which case do you wnat to run: M0 vs T (1); M1 vs T (2); M2 vs T (3) or Mm vs T (4) ?')
-% Set manually: Case_basin = 1
-
 % Prompt:
-disp('Which case do you wnat to run: M0 vs T (1); M1 vs T (2); M2 vs T (3) or Mm vs T (4) ?')
+disp('Which case do you want to run: M0 vs T (1); M1 vs T (2); M2 vs T (3) or Mm vs T (4) ?')
 Case_basin = input('Choose between 1 , 2 , 3 or 4: ');
 %=========================================================================
 % The roots of the given governing equations per parameter cases
 % Makes only sense for bistable cases
 %=========================================================================
-% Case 2: Check that steady states are correct:
-% Run first: population_Model_v2; Jacobian_Sym_population_model.m;
-% parameters.m
-% Fill in the steady state values
+% Bistable Parameter Case 2: Check that steady states are correct:
+%% Run first: population_Model_v2; Jacobian_Sym_population_model.m;
+%% parameters.m to get steady states of model
+% Fill in the model steady state values:
 
  r1 = [0.5511    0.0343    0.1126    0.1095    0.1914]; 
 
  r2 = [0.0629    0.0200    0.0901    0.0365    0.0982];
 %---------------------------------------------
-%Case 4:
+% Bistable Parameter Case 4:
 %r1 = [0.6286    0.0212    0.2075    0.2246    0.0036];
 %r2 = [0.0575    0.0141    0.1387    0.0848    0.0015];
 %---------------------------------------------
-%Case 5:
+% Bistable parameter Case 5:
 % r1 = [0.0575    0.0141    0.1387    0.0849    0.0015];
 % r2 = [0.6293    0.0212    0.2075    0.2247    0.0036];
 %---------------------------------------------
@@ -85,7 +81,6 @@ switch Case_basin
     figureMessage = 'BoA_Mm';
 end
 %==========================================================================
-
 switch Case_basin
      %-----------------------------------------------------------------------
      %-----------------------------------------------------------------------
@@ -165,7 +160,6 @@ warning('on') % Remove the warning off constraint
 
     % Optionally, you can close the figure after saving
     close(gcf);
-   %Add other 3 cases 5clean
    %-----------------------------------------------------------------------
     %-----------------------------------------------------------------------
      case {2}
@@ -403,13 +397,12 @@ warning('on') % Remove the warning off constraint
 %==========================================================================
 function [dy,J]=rhs(t,y)
 
-%Manual insertaion of case:
- Case = 2 ; %Bistability makes here only sense, so we set it fixed to Case=2
-
- % Alternatively via prompt:
- %input('Choose between 1 (low), 2 (bistable medium/low), 3 (high): ');
-
+%Manual insertaion of bistable parameter case:
+ Case = 2 ; 
  
+ %Bistability makes here only sense, so we set it fixed to Case=2
+ % as in main manuscript
+  
     params=parameters(Case) ;
 
     T=y(1);     %tumor cellf
