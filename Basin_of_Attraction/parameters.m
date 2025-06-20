@@ -1,4 +1,4 @@
-% Parameter file: Choose between `Case` 1-7
+% Parameter file: Choose between `Case` 1-9
 
 % Main contributors: Anna-Simone Frank, Kamila Larripa, Hwayeon Ruy and Susanna
 % Roeblitz
