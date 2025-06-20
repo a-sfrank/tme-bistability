@@ -6,15 +6,13 @@ Copyright (c) 2025 by the authors. All rights reserved.
 
 If you use this code or parts of it, please cite the following references:
 
-(Placeholder for now: 1. **Frank, A. S., Larripa, K., Ryu, H., and Röblitz S.** (2022). Macrophage phenotype transitions in a stochastic gene-regulatory network model. [bioRxiv preprint:10.1101/2022.10.21.513139](https://biorxiv.org/cgi/content/short/2022.10.21.513139v1).)
+**Ryu, H., Röblitz S., Larripa, K. and Frank, A. S.** (2025). Modeling Bistable Dynamics Arising from Macrophage–Tumor Interactions in the Tumor Microenvironment. (submitted to Mathematical Biosciences)
 
 #### See LICENSE for more details
-
 
 ### Questions or support contact:
 
 - **Anna-Simone Frank** (email: asfrank88@gmail.com)
-
 
 ### Download the code
 
@@ -22,11 +20,11 @@ You can download the code at: [https://github.com/a-sfrank/tme-bistability.git](
 
 ### General Information
 
-The code studies bistable dynamics in macrophage–tumor interactions within the tumor microenvironment. It solves a system of ODEs, calculates steady states and their stability. In addition, it determines the basin of attractions  and produces bifurcation diagrams.
+The code studies bistable dynamics in macrophage–tumor interactions within the tumor microenvironment. It solves a system of ODEs, calculates steady states and their stability. In addition, it determines the basin of attractions and produces bifurcation diagrams.
 
 The code generates the results presented in the article:
 
-> (Placeholder: **Frank, A. S., Larripa, K., Ryu, H., and Röblitz S.** (2022). Macrophage phenotype transitions in a stochastic gene-regulatory network model. [bioRxiv preprint:10.1101/2022.10.21.513139](https://biorxiv.org/cgi/content/short/2022.10.21.513139v1).)
+**Ryu, H., Röblitz S., Larripa, K. and Frank, A. S.** (2025). Modeling Bistable Dynamics Arising from Macrophage–Tumor Interactions in the Tumor Microenvironment.
 
 ### Included Code Files and Descriptions
 
