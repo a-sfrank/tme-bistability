@@ -1,6 +1,5 @@
 # tme-bistability
 
-
 Copyright (c) 2025 by the authors. All rights reserved.
 
 ### Citation
@@ -28,12 +27,6 @@ The code studies bistable dynamics in macrophage–tumor interactions within the
 The code generates the results presented in the article:
 
 > (Placeholder: **Frank, A. S., Larripa, K., Ryu, H., and Röblitz S.** (2022). Macrophage phenotype transitions in a stochastic gene-regulatory network model. [bioRxiv preprint:10.1101/2022.10.21.513139](https://biorxiv.org/cgi/content/short/2022.10.21.513139v1).)
-
-The code implementation is based on the following articles:
-
-- **Frank, A. S., Larripa, K., Ryu, H., and Röblitz S.** (2022). Macrophage phenotype transitions in a stochastic gene-regulatory network model. [bioRxiv preprint:10.1101/2022.10.21.513139](https://biorxiv.org/cgi/content/short/2022.10.21.513139v1).
-
-- **Frank, A. S., Larripa, K., Ryu, H., Snodgrass, R. G., & Röblitz, S.** (2021). [Bifurcation and sensitivity analysis reveal key drivers]()
 
 ### Included Code Files and Descriptions
 
