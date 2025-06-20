@@ -1,7 +1,6 @@
 % This code plots bifrucation analysis for sensitive parameters
 
 % Main contributor: Anna-Simone Frank
-
 %==========================================================================
 % DO NOT CHANGE
 close all; clear all;
@@ -18,7 +17,7 @@ end
 %==========================================================================
 % ADD/CHANGE IMPORTANT INFORMATION:
 %---
-% Choose between bi-or monostable cases: 1-7:
+% Choose between bi-or monostable cases: 1-9 (see parameter.m file for details):
 
 Case = 1
 
@@ -80,9 +79,9 @@ switch bif_param
     case 'p0'
         param_range = 0.0:0.02:1.0; % p0 range values
     case 'pT'
-         param_range = 0.0:0.1:0.5; % pT range values
+         param_range = 0.0:0.005:0.1; % pT range values
     case 'dT'
-        param_range = 0.0:0.01:0.05; % dT range values
+        param_range = 0.0:0.001:0.03; % dT range values
     case 'd2'
         param_range = 0.0:0.01:0.2; % d2 range values
     case 'alpha21' 
@@ -175,8 +174,6 @@ ylim([0, 0.4]);
 hold off
 
 % ---- X-Axis and Labels ----
-%xlabel(['Bifurcation for ', bif_param_l, xlabelMessage], ...
- %      'FontSize', fontSize, 'FontName', fontName, 'Interpreter', 'latex');
 xlabel(bif_param_l, ...
        'FontSize', 22, 'FontName', fontName , 'Interpreter', 'latex');
 legend([hT, h0, h1, h2, hM], {'Tumor','M0','M1','M2','Mm'});
@@ -188,10 +185,6 @@ xlim([min(param_range), max(param_range)]);
 % Set colors of both Y-axes
 ax.YAxis(1).Color = [0 0 0];
 ax.YAxis(2).Color = [0 0 0];
-
-% Optional font size
-%fontsize(gcf, 18, 'points');
-
 
 %==========================================================================
 % Create a dynamic figure name based on these parameters
