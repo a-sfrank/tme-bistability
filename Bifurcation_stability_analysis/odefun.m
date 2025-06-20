@@ -1,10 +1,6 @@
-% ODE system of tumor-macrophage interactions in the TME for bifurcation
-% analysis
+% ODE system of tumor-macrophage interactions in the TME for bifurcation analysis
 
 % Main contributor: Anna-Simone Frank
-% Adapted from Basin_of_Attraction/population_model_v2.m file for
-% bifurcation analysis
-
 %-------------------------------------------------------------------------
 
 function [dy,J]=odefun(t,y,b,params,Case,bif_param)
