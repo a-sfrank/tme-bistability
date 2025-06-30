@@ -6,7 +6,7 @@ Copyright (c) 2025 by the authors. All rights reserved.
 
 If you use this code or parts of it, please cite the following references:
 
-**Ryu, H., Röblitz S., Larripa, K. and Frank, A. S.** (2025). Modeling Bistable Dynamics Arising from Macrophage–Tumor Interactions in the Tumor Microenvironment. (submitted to Mathematical Biosciences)
+**Ryu, H., Röblitz S., Larripa, K. and Frank, A. S.** (2025). Modeling Bistable Dynamics Arising from Macrophage–Tumor Interactions in the Tumor Microenvironment. bioRXiv. doi: [https://doi.org/10.1101/2025.06.24.661275](https://doi.org/10.1101/2025.06.24.661275).
 
 #### See LICENSE for more details
 
@@ -24,7 +24,7 @@ The code studies bistable dynamics in macrophage–tumor interactions within the
 
 The code generates the results presented in the article:
 
-**Ryu, H., Röblitz S., Larripa, K. and Frank, A. S.** (2025). Modeling Bistable Dynamics Arising from Macrophage–Tumor Interactions in the Tumor Microenvironment.
+**Ryu, H., Röblitz S., Larripa, K. and Frank, A. S.** (2025). Modeling Bistable Dynamics Arising from Macrophage–Tumor Interactions in the Tumor Microenvironment. bioRXiv. doi: [https://doi.org/10.1101/2025.06.24.661275](https://doi.org/10.1101/2025.06.24.661275).
 
 ### Included Code Files and Descriptions
 
